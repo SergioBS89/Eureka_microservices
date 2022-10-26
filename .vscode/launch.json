@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch MicroserviceitemApplication",
+            "request": "launch",
+            "mainClass": "MicroserviceitemApplication",
+            "projectName": "microserviceitem"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServiceEurekaServerApplication<service-eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.eureka.serviceeurekaserver.ServiceEurekaServerApplication",
+            "projectName": "service-eureka-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceitemApplication<microserviceitem>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microserviceitem.MicroserviceitemApplication",
+            "projectName": "microserviceitem",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceProductsSpringbootApplication<microservice-products-springboot>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microserviceproducts.MicroserviceProductsSpringbootApplication",
+            "projectName": "microservice-products-springboot",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
