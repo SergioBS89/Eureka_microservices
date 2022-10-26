@@ -13,7 +13,7 @@ import com.microserviceitem.entities.Product;
 /* -------------------------------------------------------------------------- */
 
 //Indicamos el nombre del microservicio que vamos a consumir y su puerto
-@FeignClient(name = "micreoservice-products", url = "localhost:8081")
+@FeignClient(name = "microservice-products")
 public interface IProductClientFeign {
 
     @GetMapping("/")
