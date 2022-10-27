@@ -1,16 +1,35 @@
+# FILTERS AND PREDICATES FROM GATEWAY (MORE INFO OFFICIAL DOCUMENTATION)
+
 spring:
   cloud:
     gateway:
       routes:
         - id: microservice-products
           uri: lb://microservice-products
+          # Reglas a seguir para consumir los microservicios (predicates)
+          # (Probar con Postman)
           predicates:
+          # Ruta url
             - Path=/api/products/**
+          # Contenga un header con este info
+          #   - Header= proof, 123
+          # Contenga una cookie con la misma info
+          #   - Cookie= name, sergio
+          # Sea un metodo get o post
+          #   - Method= GET, POST
+          # Que tenga como valor en la url ?proff=123
+          #   - Query= proof, 123
           filters:
             - StripPrefix=2
         - id: microservice-item
           uri: lb://microservice-item
           predicates:
             - Path=/api/items/**
+          filters:
+            - StripPrefix=2
+        - id: microservice-store
+          uri: lb://microservice-store
+          predicates:
+            - Path=/api/store/**
           filters:
             - StripPrefix=2

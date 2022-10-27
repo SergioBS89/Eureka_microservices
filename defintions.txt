@@ -1,0 +1,75 @@
+# ---------------------------------------------------------------------------- #
+#               CONEXION ENTRE MICROSERCIOS CON LA LIBRERIA FEIGN              #
+# ---------------------------------------------------------------------------- #
+Feign es una librería que forma parte del stack de Spring Cloud, desarrollada por Netflix,
+para generar clientes de servicios REST de forma declarativa.
+
+Al estilo de los repositorios de Spring Data,lo único que debemos hacer es anotar una interfa
+con las operaciones de mapeo de los servicios que queremos consumir, parametrizando 
+apropiadamente la entrada y salida de los mismos, para que se correspondan con los verbos y 
+los datos de las operaciones de los servicios que queremos consumir.
+
+Desde el punto de vista del soporte que tenemos a día de hoy con Spring, Feign nos facilitaría 
+el trabajo así como lo hace Spring Data, sin necesidad de «bajar» al nivel de RestTemplate,
+como Spring Data nos evita trabajar directamente con EntityManager o JdbcTemplate. Y, siguiendo
+con la comparación,igualmente la implementación se genera al vuelo en tiempo de arranque del 
+contexto de Spring.
+
+# ---------------------------------------------------------------------------- #
+#                                 EUREKA SERVER                                #
+# ---------------------------------------------------------------------------- #
+Desde un tiempo a esta parte se ha empezado a escuchar conceptos como la arquitectura de
+microservicios, una especie de versión 2.0 de una arquitectura distribuida.
+Este tipo de arquitecturas se han visto espoleadas por el gran auge de las tecnologías Cloud, 
+las cuales le vienen “como anillo al dedo”. Es aqui donde aparece Eureka.
+
+Eureka es un servidor para el registro y localización de microservicios, balanceo de carga
+y tolerancia a fallos. La función de Eureka es registrar las diferentes instancias de
+microservicios existentes, su localización, estado, metadatos...
+
+¿Cómo funciona?
+
+Cada microservicio, durante su arranque, se comunicará con el servidor Eureka para notificar
+que está disponible, dónde está situado, sus metadatos… De esta forma Eureka mantendrá en su
+registro la información de todos los microservicios del ecosistema.
+El nuevo microservicio continuará notificando a Eureka su estado cada 30 segundos, lo que
+denominan ‘heartbeats’. Si después de tres periodos Eureka no recibe notificación de dicho
+microservicio, lo eliminará del registro. De la misma forma una vez vueltos a recibir tres
+notificaciones considerará el servicio disponible de nuevo.
+Cada cliente de Eureka podrá también recuperar el registro para localizar otros microservicios
+con los que necesite comunicarse. Dicha información de registro se cachea en el cliente.
+Eureka se puede configurar para funcionar en modo cluster donde varias instancias “peer”
+intercambiarán su información. Esto, junto al cacheo de la información de registro en los
+clientes da a Eureka una alta tolerancia a fallos.
+
+# ---------------------------------------------------------------------------- #
+#                                QUE ES GATEWAY                                #
+# ---------------------------------------------------------------------------- #
+
+Spring Cloud Gateway se encarga de proporcionar un punto de entrada a nuestro ecosistema de
+microservicios(conectados entre si), proporcionando capacidades de enrutamiento dinámico,
+seguridad y monitorización de las peticiones que se realicen.
+
+# ---------------------------------------------------------------------------- #
+#                   PATRON CIRCUIT BREAKER CON RESELICIENCE4J                  #
+# ---------------------------------------------------------------------------- #
+
+¿Qué es el Patrón Circuit Breaker?
+
+En nuestra arquitectura de microservicios, vamos a realizar llamadas a otros servicios en 
+muchas ocasiones de manera síncrona. Es por esa razón que en estas llamadas puede darse la 
+circunstancia de que al servicio que se le este llamando no sea accesible o que la latencia de 
+la llamada sea demasiado alta. En estos casos estamos utilizando unos recursos o unos threads 
+los cuales son muy valiosos y estamos ocasionando, por un lado dejar bloqueada una llamada y 
+por otro lado podemos provocar un fallo en cascada.
+
+Una implementación de Circuit Breaker nos va a ayudar en este tipo de escenarios, en los que 
+la llamada a un tercero se ha bloqueado, evitando repetidas llamadas a ese servicio y evitar 
+ese gasto de recursos.
+
+¿Qué es Resilience4J?
+
+Resilience4j es una librería que nos va a permitir hacer a nuestras aplicaciones resilientes. 
+Esta orientada a programación funcional, es de fácil uso y ligera ya que apenas tiene 
+dependencias.
+
