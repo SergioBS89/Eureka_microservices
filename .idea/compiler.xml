@@ -7,11 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-eureka-server" />
         <module name="microserviceitem" />
+        <module name="microservice-products-springboot" />
+        <module name="service-eureka-server" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="gateway" target="17" />
       <module name="microservice-products-springboot" target="17" />
       <module name="microserviceitem" target="17" />
       <module name="service-eureka-server" target="17" />
@@ -19,6 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gateway" options="-parameters" />
       <module name="microservice-products-springboot" options="-parameters" />
       <module name="microserviceitem" options="-parameters" />
       <module name="service-eureka-server" options="-parameters" />
