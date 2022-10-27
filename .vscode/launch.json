@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MicroserviceProductsSpringbootApplication",
+            "request": "launch",
+            "mainClass": "com.microserviceproducts.MicroserviceProductsSpringbootApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Launch MicroserviceitemApplication",
             "request": "launch",
             "mainClass": "MicroserviceitemApplication",
@@ -34,6 +41,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.microserviceproducts.MicroserviceProductsSpringbootApplication",
             "projectName": "microservice-products-springboot",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayApplication<gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.springcloud.gateway.gateway.GatewayApplication",
+            "projectName": "gateway",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

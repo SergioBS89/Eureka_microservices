@@ -41,6 +41,7 @@ public class ProductController {
         Product p = productService.findById(id);
         // Asigno el valor de puerto
         p.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+
         return p;
 
     }

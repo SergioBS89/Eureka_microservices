@@ -12,7 +12,7 @@ import com.microserviceitem.entities.Product;
 /*                      CLIENTE REST CON FEIGN DE NETFLIX                     */
 /* -------------------------------------------------------------------------- */
 
-//Indicamos el nombre del microservicio que vamos a consumir y su puerto
+//Indicamos el nombre del microservicio que vamos a consumir 
 @FeignClient(name = "microservice-products")
 public interface IProductClientFeign {
 
