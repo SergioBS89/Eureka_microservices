@@ -2,13 +2,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch GatewayApplication",
-            "request": "launch",
-            "mainClass": "com.springcloud.gateway.GatewayApplication",
-            "projectName": "gateway"
-        },
-        {
-            "type": "java",
             "name": "Launch MicroserviceProductsSpringbootApplication",
             "request": "launch",
             "mainClass": "com.microserviceproducts.MicroserviceProductsSpringbootApplication",
