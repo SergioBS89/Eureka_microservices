@@ -10,6 +10,9 @@ public class Item {
         this.quantity = quantity;
     }
 
+    public Item() {
+    }
+
     /**
      * @return Product return the product
      */

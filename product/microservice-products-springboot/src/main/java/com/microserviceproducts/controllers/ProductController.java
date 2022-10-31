@@ -1,6 +1,7 @@
 package com.microserviceproducts.controllers;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ProductController {
 
     @GetMapping("/")
     public List<Product> listOfProducts() {
-        // Asignacion del puerto
+        // Assignation random port to every product
         return productService.findAll().stream().map(s -> {
             s.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
             return s;
@@ -38,8 +39,21 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product detail(@PathVariable Long id) {
 
+        // Simulating an error
+        if (id.equals(10L)) {
+            throw new IllegalStateException("Product not found...please try again");
+        }
+
+        if (id.equals(7L)) {
+            try {
+                TimeUnit.SECONDS.sleep(5L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         Product p = productService.findById(id);
-        // Asigno el valor de puerto
+        // Asignation random port
         p.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 
         return p;

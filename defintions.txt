@@ -67,9 +67,31 @@ Una implementación de Circuit Breaker nos va a ayudar en este tipo de escenario
 la llamada a un tercero se ha bloqueado, evitando repetidas llamadas a ese servicio y evitar 
 ese gasto de recursos.
 
-¿Qué es Resilience4J?
+¿What is Resilience4J?
 
-Resilience4j es una librería que nos va a permitir hacer a nuestras aplicaciones resilientes. 
-Esta orientada a programación funcional, es de fácil uso y ligera ya que apenas tiene 
-dependencias.
+Resilience4j is a library that will allow us to make our applications resilient. 
+It is oriented to functional programming, it is easy to use and light since it has almost no 
+dependencies.
+
+How it works?
+
+Sometimes an user send a request and this one is denegated. If that user keeps launching
+infinite request, it coulb be a problem...here is when Resilience4J starts to work! We can customize our
+own bean CicuitBreaker to mannage differents parametters, like the number of request allowed,
+time available to repeat the process, percentage of fails.
+
+When the program throw circuit breaker is executed some action (exception error, messages...) and
+start the OPEN STATE.
+Once the recovery time is over (we can modify a value to managge the wait
+time to recover the program), after time is over program starts in HALF OPEN STATE
+(it has a differents parametters), executing request again to try if program is working, if not, 
+the circuit breaker is thowing again.
+
+List of parametters to customize our circuit beans:
+
+-SlidingWindowsSize(number) -> It mannaged the number of attemps before circuit breaker throws
+-failureRateThreshold(percentage) -> It mannaged the percentage of fails allowed of the number
+of request sending [if SlidingWindowsSize(10) and failureRateThreshold(50) user only has 5 attemps]
+-waitDurationInOpenState(Duration) -> Time to recover the program and leave circuit breaker
+-permittedNumberOfCallsInHalfOpenState(number) ->Number o attemps allowed in half open state
 
