@@ -34,15 +34,25 @@ public class RestTemplateConfig {
             return new Resilience4JConfigBuilder(id)
                     .circuitBreakerConfig(CircuitBreakerConfig.custom()
                             // num of request in total state (more info in definitons.txt)
-                            .slidingWindowSize(10)
-                            // total oportunities
+                            .slidingWindowSize(4)
+                            // total oportunities 50%
                             .failureRateThreshold(50)
                             // wait time open
                             .waitDurationInOpenState(Duration.ofSeconds(10L))
                             // num of request in half open (more info in definitions.txt)
                             .permittedNumberOfCallsInHalfOpenState(3)
+                            /* ------------------ THIS CONFIG IS MANNAGED IN PROPERTIES ----------------- */
+                            // Properties config has priority over this bean...so this configuration does
+                            // not working
+                            // total oportunities 50%
+                            .slowCallRateThreshold(50)
+                            // Attemps that duration is more than 2 seconds are counted as slowcalls
+                            // (so, if we have more than )
+                            .slowCallDurationThreshold(Duration.ofSeconds(5L))
                             .build())
-                    .timeLimiterConfig(TimeLimiterConfig.ofDefaults())
+
+                    // Configuration to do slow calls (6 seconds) and enable to count slow calls
+                    .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(6L)).build())
                     .build();
         });
     }

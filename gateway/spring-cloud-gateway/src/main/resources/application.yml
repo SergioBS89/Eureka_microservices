@@ -25,11 +25,11 @@ spring:
           uri: lb://microservice-item
           predicates:
             - Path=/api/items/**
-          filters:
-            - StripPrefix=2
-        - id: microservice-store
-          uri: lb://microservice-store
-          predicates:
-            - Path=/api/store/**
-          filters:
-            - StripPrefix=2
+        #   filters:
+        #     - StripPrefix=2
+        # - id: microservice-store
+        #   uri: lb://microservice-store
+        #   predicates:
+        #     - Path=/api/store/**
+        #   filters:
+        #     - StripPrefix=2
