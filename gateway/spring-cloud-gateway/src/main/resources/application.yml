@@ -4,6 +4,7 @@ spring:
   cloud:
     gateway:
       routes:
+      
         - id: microservice-products
           uri: lb://microservice-products
           # Reglas a seguir para consumir los microservicios (predicates)
@@ -20,13 +21,16 @@ spring:
           # Que tenga como valor en la url ?proff=123
           #   - Query= proof, 123
           filters:
+          # Name instance CIRCUIT BREAKER
+            # - CircuitBreaker=products
             - StripPrefix=2
+
         - id: microservice-item
           uri: lb://microservice-item
           predicates:
             - Path=/api/items/**
-        #   filters:
-        #     - StripPrefix=2
+          filters:
+            - StripPrefix=2
         # - id: microservice-store
         #   uri: lb://microservice-store
         #   predicates:
