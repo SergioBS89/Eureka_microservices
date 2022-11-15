@@ -62,10 +62,9 @@ public class ItemsControllers {
     }
 
     @CircuitBreaker(name = "items") // Indicate the name of config in properties
-    @GetMapping("/{id}/quan/{q}")
+    @GetMapping("/{id}/q/{q}")
     public Item findByIdWithNotations(@PathVariable Long id, @PathVariable Integer q) {
 
         return itemServiceFeign.findById(id, q);
-
     }
 }

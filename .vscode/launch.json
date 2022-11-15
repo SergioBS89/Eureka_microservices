@@ -22,7 +22,8 @@
             "mainClass": "com.eureka.serviceeurekaserver.ServiceEurekaServerApplication",
             "projectName": "service-eureka-server",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=58161 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=service-eureka-server"
         },
         {
             "type": "java",
@@ -42,7 +43,8 @@
             "mainClass": "com.microserviceproducts.MicroserviceProductsSpringbootApplication",
             "projectName": "microservice-products-springboot",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=58177 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=microservice-products-springboot"
         },
         {
             "type": "java",
@@ -50,6 +52,16 @@
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.springcloud.gateway.gateway.GatewayApplication",
+            "projectName": "gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayApplication<gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.springcloud.GatewayApplication",
             "projectName": "gateway",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
