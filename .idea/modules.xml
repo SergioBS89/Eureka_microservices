@@ -3,10 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Eureka_microservices.iml" filepath="$PROJECT_DIR$/.idea/Eureka_microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/globalConf/Spring Server Config/SpringServerConfig.iml" filepath="$PROJECT_DIR$/globalConf/Spring Server Config/SpringServerConfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/spring-cloud-gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/spring-cloud-gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/product/microservice-products-springboot/microservice-products-springboot.iml" filepath="$PROJECT_DIR$/product/microservice-products-springboot/microservice-products-springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/item/microservice-item/microserviceitem.iml" filepath="$PROJECT_DIR$/item/microservice-item/microserviceitem.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-eureka-server/service-eureka-server.iml" filepath="$PROJECT_DIR$/service-eureka-server/service-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springconfserver/springconfserver.iml" filepath="$PROJECT_DIR$/springconfserver/springconfserver.iml" />
     </modules>
   </component>
 </project>

@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpringconfserverApplication",
+            "request": "launch",
+            "mainClass": "com.springconfserver.SpringconfserverApplication"
+        },
+        {
+            "type": "java",
             "name": "Launch MicroserviceProductsSpringbootApplication",
             "request": "launch",
             "mainClass": "com.microserviceproducts.MicroserviceProductsSpringbootApplication",
