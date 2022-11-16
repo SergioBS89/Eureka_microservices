@@ -1,8 +1,10 @@
 package com.microserviceitem.controllers;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.microserviceitem.services.ItemService;
+// import com.microserviceitem.services.ItemService;
 import com.microserviceitem.services.ItemServiceFeign;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -19,11 +21,13 @@ import com.microserviceitem.entities.Product;
 @RestController
 public class ItemsControllers {
 
+    private final Logger logger = LoggerFactory.getLogger(ItemsControllers.class);
+
     @Autowired
     private CircuitBreakerFactory circuitBreakerFactory;
 
-    @Autowired
-    private ItemService itemService;
+    // @Autowired
+    // private ItemService itemService;
     @Autowired
     private ItemServiceFeign itemServiceFeign;
 
@@ -41,15 +45,16 @@ public class ItemsControllers {
 
         // (If the program fails many times (by default 50% of 100 request), it trow
         // the circuit breaker...after that, the second method error is executed showing
-        // the
-        // Info of the product showed below )
+        // the Info of the product showed below )
         return circuitBreakerFactory.create("items")
-                .run(() -> itemServiceFeign.findById(id, q), error -> alternativeError(id,
-                        q));
+                .run(() -> itemServiceFeign.findById(id , q));
+                // ,error -> alternativeError(id,
+                //        q));
 
     }
 
-    public Item alternativeError(Long id, Integer quan) {
+    public Item alternativeError(Long id, Integer quan, Throwable e) {
+        logger.info(e.getMessage());
         Item i = new Item();
         Product p = new Product();
 
@@ -60,11 +65,11 @@ public class ItemsControllers {
         i.setProduct(p);
         return i;
     }
-
+    
+    // WORKING WITH ANOTATIONS AND .YML CONFIG
     @CircuitBreaker(name = "items") // Indicate the name of config in properties
     @GetMapping("/{id}/q/{q}")
     public Item findByIdWithNotations(@PathVariable Long id, @PathVariable Integer q) {
-
         return itemServiceFeign.findById(id, q);
     }
 }

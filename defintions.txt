@@ -95,3 +95,31 @@ of request sending [if SlidingWindowsSize(10) and failureRateThreshold(50) user 
 -waitDurationInOpenState(Duration) -> Time to recover the program and leave circuit breaker
 -permittedNumberOfCallsInHalfOpenState(number) ->Number o attemps allowed in half open state
 
+----------------PARAMETERS TO CONFIG Resilience4J-----------------------
+
+# NUM OF REQUEST IN OPEN STATE
+sliding-window-size= num 
+
+# NUM OF FAILS % (By default is 100%)
+failure-rate-threshold= %
+
+# TIME DURATION OF OPEN STATE BEFORE THROW CIRCUIT BREAKER
+wait-duration-in-open-state= secons
+
+# NUM OF ATTEMPS TO DO REQUEST IN HALF OPEN STATE
+permitted-number-of-calls-in-half-open-state=4
+
+# NUM OF FAILS WHEN WE ARE USING SLOW CALLS
+slow-call-rate-threshold= %
+
+# REQUEST that duration is more than 2 seconds are counted as slowcalls 
+slow-call-duration-threshold=2s
+
+# NAME OF THE INSTANCE THAT USES THIS CONFIG (Items controller anotation circuit breaker)
+items.base-config=defecto
+
+# CONFIG TIME TO SLOW CALLS (If the low call is throw, this parameter config its time)
+timeout-duration=5s
+
+# NAME OF THE INSTANCE THAT USES THIS CONFIG (Items controller anotation circuit breaker)
+base-config=defecto

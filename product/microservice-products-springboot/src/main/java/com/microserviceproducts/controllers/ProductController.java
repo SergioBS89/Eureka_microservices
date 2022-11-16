@@ -36,6 +36,7 @@ public class ProductController {
         }).collect(Collectors.toList());
     }
 
+    // ----------SIMULATING ERRORS TO THROW THE CIRCUIT BREAKER IN ITEM MICROSERVICE--------
     @GetMapping("/{id}")
     public Product detail(@PathVariable Long id) {
 
@@ -46,7 +47,7 @@ public class ProductController {
 
         if (id.equals(7L)) {
             try {
-                TimeUnit.SECONDS.sleep(5L);
+                TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
