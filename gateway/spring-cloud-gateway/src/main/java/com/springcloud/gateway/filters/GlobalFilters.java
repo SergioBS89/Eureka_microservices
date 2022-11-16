@@ -25,7 +25,8 @@ public class GlobalFilters implements GlobalFilter {
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
             logger.info("Executing post filter");
             exchange.getResponse().getCookies().add("color", ResponseCookie.from("color", "red").build());
-            exchange.getResponse().getHeaders().setContentType(MediaType.TEXT_PLAIN);
+            //Show in postman the json info as text
+//            exchange.getResponse().getHeaders().setContentType(MediaType.TEXT_PLAIN);
         }));
     }
 
