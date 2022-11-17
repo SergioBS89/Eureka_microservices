@@ -25,4 +25,12 @@ public class ProductService {
         return jpaRepository.findById(id).orElse(null);
     }
 
+    public Product save(Product product){
+        return jpaRepository.save(product);
+    }
+
+    public void delete(Long id){
+        jpaRepository.deleteById(id);
+    }
+
 }

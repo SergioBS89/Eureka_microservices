@@ -15,6 +15,7 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,20 +27,25 @@ import com.microserviceitem.entities.Item;
 import com.microserviceitem.entities.Product;
 
 @RestController
+@RefreshScope //It is used to refresh the data of git config in real time, so if data change in git, change in the app at the
+//same time. Refreshing dates that takes the annotation @Value("$config.text") shows below
 public class ItemsControllers {
 
+    //Value to get the value text of file.properties from Git Repository inside Global_config_server (save in Lenovo ubuntu / proyects)
+    @Value("${config.text}")
+    private String textGit;
+
+    //This object is to get information about how works circuit breaker in the console
     private final Logger logger = LoggerFactory.getLogger(ItemsControllers.class);
 
-    //Injection Bean of environment to know wich properties is used in git repo
+    //Inject a Bean of environment to know wich properties is used in git repo and print the info as json
     @Autowired
     private Environment env;
 
     @Autowired
     private CircuitBreakerFactory circuitBreakerFactory;
 
-    //Value to get the value text of file.properties from Git Repository inside Global_config_server (save in Lenovo ubuntu / proyects)
-    @Value("${config.text}")
-    private String textGit;
+
     @Autowired
     private ItemServiceFeign itemServiceFeign;
 
