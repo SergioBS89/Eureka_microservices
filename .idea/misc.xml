@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/product/microservice-products-springboot/pom.xml" />
         <option value="$PROJECT_DIR$/globalConf/Spring Server Config/pom.xml" />
         <option value="$PROJECT_DIR$/springconfserver/pom.xml" />
+        <option value="$PROJECT_DIR$/common-class/pom.xml" />
       </list>
     </option>
   </component>

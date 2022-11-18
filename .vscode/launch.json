@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch CommonClassApplication",
+            "request": "launch",
+            "mainClass": "com.commonclass.CommonClassApplication",
+            "projectName": "common-class"
+        },
+        {
+            "type": "java",
             "name": "Launch SpringconfserverApplication",
             "request": "launch",
             "mainClass": "com.springconfserver.SpringconfserverApplication"

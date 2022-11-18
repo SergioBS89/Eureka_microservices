@@ -7,15 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common-class" />
         <module name="microserviceitem" />
         <module name="microservice-products-springboot" />
-        <module name="SpringServerConfig" />
         <module name="service-eureka-server" />
         <module name="springconfserver" />
+        <module name="SpringServerConfig" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common-class" target="17" />
       <module name="gateway" target="17" />
       <module name="microservice-products-springboot" target="17" />
       <module name="microserviceitem" target="17" />
@@ -27,6 +29,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SpringServerConfig" options="-parameters" />
+      <module name="common-class" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="microservice-products-springboot" options="-parameters" />
       <module name="microserviceitem" options="-parameters" />
