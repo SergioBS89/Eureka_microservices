@@ -22,7 +22,7 @@ spring:
           #   - Query= proof, 123
           filters:
           # Name instance CIRCUIT BREAKER
-            # - CircuitBreaker=products
+            - CircuitBreaker=products
             - StripPrefix=2
 
         - id: microservice-item

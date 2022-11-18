@@ -1,10 +1,54 @@
 # ---------------------------------------------------------------------------- #
+#               MAIN ENDPOINTS AND HOW TO RUN THIS APP                         #
+# ---------------------------------------------------------------------------- #
+
+Run in this order:
+1º Eureka server
+2º Config server
+3º Gateway
+4º Product microservice
+5º Item microservice
+
+ROUTES EUREKA SERVER (not using server config project):
+findAll():
+localhost:8082/
+findById():
+localhost:8082/{id}/quan/{quantity}
+
+ROUTES WORKING WITH CONFIG SERVER
+Show some info of properties GitHub:
+localhost:8005/get-conf
+Show full info of environment properties GitHub:
+localhost:8888/microservice-item/dev
+localhost:8888/microservice-item/prod
+
+ROUTES GATEWAY:
+findAll():
+localhost:8083/api/products/
+localhost:8083/api/items/
+findById():
+localhost:8083/api/products/{id}
+localhost:8083/api/items/{id}/quan/{quantity}
+findById using circuit breaker annotation:
+localhost:8083/api/items/{id}/q/{quantity}
+create():
+localhost:8083/api/products/
+localhost:8083/api/items/
+update:
+localhost:8083/api/products/{id}
+localhost:8083/api/items/{id}
+delete()
+localhost:8083/api/products/{id}
+localhost:8083/api/items/{id}
+
+
+# ---------------------------------------------------------------------------- #
 #               CONEXION ENTRE MICROSERCIOS CON LA LIBRERIA FEIGN              #
 # ---------------------------------------------------------------------------- #
 Feign es una librería que forma parte del stack de Spring Cloud, desarrollada por Netflix,
 para generar clientes de servicios REST de forma declarativa.
 
-Al estilo de los repositorios de Spring Data,lo único que debemos hacer es anotar una interfa
+Al estilo de los repositorios de Spring Data,lo único que debemos hacer es anotar una interfaz
 con las operaciones de mapeo de los servicios que queremos consumir, parametrizando 
 apropiadamente la entrada y salida de los mismos, para que se correspondan con los verbos y 
 los datos de las operaciones de los servicios que queremos consumir.

@@ -29,6 +29,10 @@ public class ProductService {
         return jpaRepository.save(product);
     }
 
+    public  void update(Product p){
+        jpaRepository.save(p);
+    }
+
     public void delete(Long id){
         jpaRepository.deleteById(id);
     }

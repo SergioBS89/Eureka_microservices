@@ -3,6 +3,7 @@ package com.microserviceitem.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.microserviceitem.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,4 +34,18 @@ public class ItemServiceFeign implements ItemServiceInterface {
         return new Item(clientFeign.detail(id), quantity);
     }
 
+    @Override
+    public Product save(Product product) {
+        return clientFeign.save(product);
+    }
+
+    @Override
+    public Product update(Product product, Long id) {
+        return clientFeign.update(product,id);
+    }
+
+    @Override
+    public void delete(Long id) {
+       clientFeign.delete(id);
+    }
 }

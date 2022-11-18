@@ -69,8 +69,8 @@ public class ProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public Product update(@RequestBody Product product, @PathVariable Long id){
         Product p = productService.findById(id);
-        product.setName(p.getName());
-        product.setPrice(p.getPrice());
+        p.setName(product.getName());
+        p.setPrice(product.getPrice());
         return productService.save(product);
     }
 
