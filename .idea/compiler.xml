@@ -10,14 +10,19 @@
         <module name="common-class" />
         <module name="microserviceitem" />
         <module name="microservice-products-springboot" />
+        <module name="common" />
         <module name="service-eureka-server" />
         <module name="springconfserver" />
         <module name="SpringServerConfig" />
         <module name="gateway" />
+        <module name=".class" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name=".class" target="17" />
+      <module name="common" target="1.8" />
       <module name="common-class" target="17" />
+      <module name="commonclass" target="1.8" />
       <module name="gateway" target="17" />
       <module name="microservice-products-springboot" target="17" />
       <module name="microserviceitem" target="17" />
@@ -28,8 +33,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name=".class" options="-parameters" />
       <module name="SpringServerConfig" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="common-class" options="-parameters" />
+      <module name="commonclass" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="microservice-products-springboot" options="-parameters" />
       <module name="microserviceitem" options="-parameters" />

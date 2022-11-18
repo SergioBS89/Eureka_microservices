@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/common-class/microservice-products-springboot/.class.iml" filepath="$PROJECT_DIR$/common-class/microservice-products-springboot/.class.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Eureka_microservices.iml" filepath="$PROJECT_DIR$/.idea/Eureka_microservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/globalConf/Spring Server Config/SpringServerConfig.iml" filepath="$PROJECT_DIR$/globalConf/Spring Server Config/SpringServerConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-class/common-class.iml" filepath="$PROJECT_DIR$/common-class/common-class.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/spring-cloud-gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/spring-cloud-gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/product/microservice-products-springboot/microservice-products-springboot.iml" filepath="$PROJECT_DIR$/product/microservice-products-springboot/microservice-products-springboot.iml" />
